@@ -76,3 +76,49 @@
     font-style: normal;
     font-display: swap;
 }
+
+.header__inner {
+    display: flex;
+    gap: 95px;
+    min-height: 36.42px;
+    padding: 38px 0;
+
+    a {
+        font-weight: 500;
+        text-transform: capitalize;
+        color: #151515;
+        text-align: right;
+    }
+
+    .header__logo {
+        width: 139px;
+        height: 36px;
+    }
+
+    .menu {
+        margin-left: auto;
+        align-content: center;
+
+        a {
+            color: #181818;
+        }
+
+        ul {
+            display: flex;
+            gap: 18px;
+        }
+    }
+
+    .user-actions__list {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .user-actions__link-sign-in {
+            padding: 5px 22px;
+            border-radius: 5px;
+            background: #656293;
+            color: #fff;
+        }
+    }
+}
