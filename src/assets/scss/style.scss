@@ -83,6 +83,23 @@
     min-height: 36.42px;
     padding: 38px 0;
 
+    @include breakpoint(1071px) {
+        gap: 65px;
+    }
+
+    @include breakpoint($tablet-bp) {
+        gap: 0;
+    }
+
+    @include breakpoint($small-tablet-bp) {
+        padding: 28px 0;
+        min-height: auto;
+    }
+
+    @include breakpoint($mobile-bp) {
+        padding: 18px 0;
+    }
+
     a {
         font-weight: 500;
         text-transform: capitalize;
@@ -93,19 +110,76 @@
     .header__logo {
         width: 139px;
         height: 36px;
+
+        @include breakpoint($tablet-bp) {
+            margin-left: auto;
+        }
+
+        @include breakpoint($mobile-bp) {
+            width: 103px;
+            height: 26px;
+        }
     }
 
     .menu {
+        position: relative;
         margin-left: auto;
-        align-content: center;
+        display: flex;
+        align-items: center;
+
+        @include breakpoint($tablet-bp) {
+            margin: 0;
+            order: -1;
+        }
 
         a {
             color: #181818;
         }
 
-        ul {
+        .menu__btn {
+            display: none;
+
+            @include breakpoint($tablet-bp) {
+                display: flex;
+            }
+        }
+
+        .menu__list {
             display: flex;
             gap: 18px;
+
+            @include breakpoint($tablet-bp) {
+                position: absolute;
+                top: 0;
+                left: 100%;
+                transform: translateY(-120%);
+                flex-direction: column;
+                gap: 25px;
+                align-items: center;
+                background-color: #fff;
+                border-radius: 8px;
+                padding: 40px 20px;
+                width: 310px;
+            }
+
+            @include breakpoint($mobile-bp) {
+                width: 200px;
+            }
+
+            &.menu__list--open {
+                transform: translateY(0%);
+            }
+
+            .menu__close {
+                display: none;
+                position: absolute;
+                top: 10px;
+                right: 10px;
+
+                @include breakpoint($tablet-bp) {
+                    display: list-item;
+                }
+            }
         }
     }
 
@@ -113,6 +187,14 @@
         display: flex;
         align-items: center;
         gap: 20px;
+
+        @include breakpoint($tablet-bp) {
+            margin-left: auto;
+        }
+
+        @include breakpoint($mobile-bp) {
+            gap: 10px;
+        }
 
         .user-actions__link-sign-in {
             padding: 5px 22px;

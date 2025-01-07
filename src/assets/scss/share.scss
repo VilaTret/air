@@ -43,3 +43,16 @@ body {
 .ta-e {
     text-align: end;
 }
+
+.icon-btn {
+    display: flex;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
