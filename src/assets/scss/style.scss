@@ -219,15 +219,40 @@
 .intro__inner {
     padding: 182.58px 0 153px 0;
 
+    @include breakpoint($small-tablet-bp) {
+        padding: 162px 0 133px 0;
+    }
+
+    @include breakpoint($mobile-bp) {
+        padding: 142px 0 113px 0;
+    }
+
     .intro__content {
         max-width: 587px;
         min-height: 226px;
+
+        @include breakpoint($small-tablet-bp) {
+            max-width: 497px;
+        }
+
+        @include breakpoint($mobile-bp) {
+            max-width: 430px;
+        }
 
         h1 {
             min-height: 154px;
             font-family: $second-family;
             font-size: 66px;
             text-transform: capitalize;
+
+            @include breakpoint($small-tablet-bp) {
+                min-height: auto;
+                font-size: 60px;
+            }
+
+            @include breakpoint($mobile-bp) {
+                font-size: 36px;
+            }
 
             b {
                 text-transform: uppercase;
@@ -240,6 +265,10 @@
             display: block;
             margin-top: 48px;
             font-size: 16px;
+
+            @include breakpoint($mobile-bp) {
+                margin-top: 30px;
+            }
 
             &::after {
                 content: '';
