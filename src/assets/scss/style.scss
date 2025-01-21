@@ -21,6 +21,10 @@
 // глобальные стили
 @import './share.scss';
 
+@import './node_modules/flatpickr/dist/flatpickr';
+
+@import './node_modules/choices.js/public/assets/styles/choices';
+
 @font-face {
     font-family: 'Poppins';
     src: url('./../fonts/Poppins-Medium.woff2') format('woff2');
@@ -93,7 +97,6 @@
 .header__inner {
     display: flex;
     gap: 95px;
-    min-height: 36.42px;
     padding: 38px 0;
 
     @include breakpoint(1071px) {
@@ -274,10 +277,198 @@
                 content: '';
                 background-image: url('./../images/icons/intro-link-arrow.svg');
                 position: absolute;
+                top: 4px;
                 margin-left: 9px;
                 width: 16px;
                 height: 16px;
             }
+        }
+    }
+}
+
+.book-flights__inner {
+    position: relative;
+    padding-bottom: 40px;
+
+    .book-flights__content {
+        border-radius: 12px;
+        min-height: 266px;
+        padding: 34px 30px 33px 29px;
+        box-shadow: 0 1px 3px 0 rgba(19, 10, 46, 0.13),
+            0 3px 14px 0 rgba(19, 10, 46, 0.03),
+            0 8px 32px 0 rgba(19, 10, 46, 0.07),
+            0 30px 84px 0 rgba(19, 10, 46, 0.08);
+        background: #fff;
+
+        input {
+            border: none;
+            outline: none;
+            padding: 0;
+            font-family: $font-family;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.5;
+            text-transform: capitalize;
+            color: #151515;
+        }
+
+        .book-flights__options {
+            display: flex;
+            gap: 10px;
+        }
+
+        .book-flights__details {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+
+            .book-flights__item {
+                border: 1px solid #aaa;
+                border-radius: 10px;
+                padding: 16px 20px 15px 20px;
+
+                p {
+                    font-weight: 500;
+                    text-transform: uppercase;
+                    color: #15151599;
+                }
+            }
+
+            .route-selection__froom,
+            .route-selection__to {
+                width: 300px;
+                min-height: 117px;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            #route-selection__invert-btn {
+                margin: 0 6px;
+                border: 0.47px solid #aaa;
+                border-radius: 100%;
+                padding: 6.07px 6.07px 5.6px 5.6px;
+
+                img {
+                    width: 16.33px;
+                    height: 16.33px;
+                }
+            }
+
+            .date-selection {
+                margin-left: 10px;
+                min-width: 399px;
+                min-height: 117px;
+                display: flex;
+                gap: 10px;
+
+                .date-selection__item {
+                    width: 100%;
+
+                    .date-selection__flatpickr {
+                        margin-top: 4px;
+
+                        .flatpickr__input-wrapper {
+                            position: relative;
+                            cursor: pointer;
+
+                            input {
+                                width: 150px;
+                            }
+
+                            &::after {
+                                content: '';
+                                background-image: url('./../images/icons/calendar.svg');
+                                position: absolute;
+                                top: 6px;
+                                right: 0;
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+
+                        .flatpickr__actions {
+                            margin-top: 4px;
+                            display: flex;
+                            gap: 44px;
+
+                            button {
+                                border: none;
+                                background-color: transparent;
+                                padding: 0;
+                                color: #15151599;
+                                text-decoration-skip-ink: none;
+                                cursor: pointer;
+
+                                &:hover {
+                                    text-decoration: underline;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        #book-flights__add-requirements-btn {
+            margin-top: 16px;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+            text-transform: capitalize;
+            text-decoration-skip-ink: none;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            &.book-flights__add-requirements-btn--close {
+                display: none;
+            }
+        }
+
+        #book-flights__add-requirements-textarea {
+            display: none;
+            margin: 16px 0;
+            width: 100%;
+            resize: none;
+            outline: none;
+            border: 1px solid #aaa;
+            border-radius: 10px;
+            padding: 20px;
+            font-family: $font-family;
+            font-size: 16px;
+            font-weight: 500;
+
+            &.book-flights__add-requirements-input--open {
+                display: inline-block;
+            }
+        }
+    }
+
+    #book-flights__book-btn {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        padding: 27px 96px 26px 30px;
+        border: none;
+        border-radius: 10px;
+        background: #656293;
+        font-size: 18px;
+        text-transform: capitalize;
+        color: #fff;
+        cursor: pointer;
+
+        &::after {
+            content: '';
+            background-image: url('./../images/icons/book-flight-btn-arrow.svg');
+            position: absolute;
+            top: 32px;
+            margin-left: 50px;
+            width: 18px;
+            height: 18px;
         }
     }
 }
