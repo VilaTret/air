@@ -290,6 +290,10 @@
     position: relative;
     padding-bottom: 40px;
 
+    @include breakpoint($mobile-bp) {
+        padding-bottom: 27.5px;
+    }
+
     .book-flights__content {
         border-radius: 12px;
         min-height: 266px;
@@ -299,6 +303,10 @@
             0 8px 32px 0 rgba(19, 10, 46, 0.07),
             0 30px 84px 0 rgba(19, 10, 46, 0.08);
         background: #fff;
+
+        @include breakpoint($mobile-bp) {
+            font-size: 12px;
+        }
 
         input {
             border: none;
@@ -310,6 +318,10 @@
             line-height: 1.5;
             text-transform: capitalize;
             color: #151515;
+
+            @include breakpoint($mobile-bp) {
+                font-size: 18px;
+            }
         }
 
         .book-flights__options {
@@ -321,6 +333,15 @@
             margin-top: 24px;
             display: flex;
             align-items: center;
+
+            @include breakpoint(1128px) {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            @include breakpoint($small-tablet-bp) {
+                flex-direction: column;
+            }
 
             .book-flights__item {
                 border: 1px solid #aaa;
@@ -337,10 +358,17 @@
             .route-selection__froom,
             .route-selection__to {
                 width: 300px;
-                min-height: 117px;
                 display: flex;
                 flex-direction: column;
                 gap: 4px;
+
+                @include breakpoint($small-tablet-bp) {
+                    width: 400px;
+                }
+
+                @include breakpoint($mobile-bp) {
+                    width: 100%;
+                }
             }
 
             #route-selection__invert-btn {
@@ -348,6 +376,11 @@
                 border: 0.47px solid #aaa;
                 border-radius: 100%;
                 padding: 6.07px 6.07px 5.6px 5.6px;
+
+                @include breakpoint($small-tablet-bp) {
+                    margin: 6px 0;
+                    transform: rotate(90deg);
+                }
 
                 img {
                     width: 16.33px;
@@ -357,13 +390,42 @@
 
             .date-selection {
                 margin-left: 10px;
-                min-width: 399px;
-                min-height: 117px;
+                width: 399px;
                 display: flex;
                 gap: 10px;
 
+                @include breakpoint(1128px) {
+                    margin: 20px 0 0 0;
+                    width: 430px;
+                    gap: 20px;
+                }
+
+                @include breakpoint($small-tablet-bp) {
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    width: 400px;
+                }
+
+                @include breakpoint($mobile-bp) {
+                    width: 100%;
+                }
+
                 .date-selection__item {
                     width: 100%;
+
+                    @include breakpoint($small-tablet-bp) {
+                        width: 180px;
+                    }
+
+                    @include breakpoint($mobile-bp) {
+                        width: 145px;
+                    }
+
+                    &:last-child {
+                        @include breakpoint($small-tablet-bp) {
+                            margin-left: auto;
+                        }
+                    }
 
                     .date-selection__flatpickr {
                         margin-top: 4px;
@@ -373,7 +435,7 @@
                             cursor: pointer;
 
                             input {
-                                width: 150px;
+                                width: 100%;
                             }
 
                             &::after {
@@ -384,6 +446,10 @@
                                 right: 0;
                                 width: 24px;
                                 height: 24px;
+
+                                @include breakpoint($mobile-bp) {
+                                    top: 1.5px;
+                                }
                             }
                         }
 
@@ -419,6 +485,14 @@
             text-decoration-skip-ink: none;
             cursor: pointer;
 
+            @include breakpoint($small-tablet-bp) {
+                margin-bottom: 20px;
+            }
+
+            @include breakpoint($mobile-bp) {
+                margin-bottom: 10px;
+            }
+
             &:hover {
                 text-decoration: underline;
             }
@@ -447,28 +521,42 @@
         }
     }
 
-    #book-flights__book-btn {
+    .book-flights__book-btn-wrapper {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
         bottom: 0;
-        padding: 27px 96px 26px 30px;
-        border: none;
-        border-radius: 10px;
-        background: #656293;
-        font-size: 18px;
-        text-transform: capitalize;
-        color: #fff;
-        cursor: pointer;
+        display: flex;
+        width: 100%;
+        justify-content: center;
 
-        &::after {
-            content: '';
-            background-image: url('./../images/icons/book-flight-btn-arrow.svg');
-            position: absolute;
-            top: 32px;
-            margin-left: 50px;
-            width: 18px;
-            height: 18px;
+        #book-flights__book-btn {
+            padding: 27px 95px 26px 30px;
+            border: none;
+            border-radius: 10px;
+            background: #656293;
+            font-size: 18px;
+            text-transform: capitalize;
+            color: #fff;
+            cursor: pointer;
+
+            @include breakpoint($mobile-bp) {
+                padding: 17px 65px 17px 20px;
+                font-size: 14px;
+            }
+
+            &::after {
+                content: '';
+                background-image: url('./../images/icons/book-flight-btn-arrow.svg');
+                position: absolute;
+                top: 32px;
+                margin-left: 49px;
+                width: 18px;
+                height: 18px;
+
+                @include breakpoint($mobile-bp) {
+                    top: 18.5px;
+                    margin-left: 27px;
+                }
+            }
         }
     }
 }
