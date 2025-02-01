@@ -560,3 +560,85 @@
         }
     }
 }
+
+.jet-info__inner {
+    padding: 67px 0;
+
+    h2 {
+        font-weight: 700;
+        font-size: 36px;
+        text-transform: capitalize;
+        text-align: center;
+        color: #000;
+    }
+
+    ul {
+        margin-top: 65px;
+
+        li {
+            position: relative;
+            margin-top: 50px;
+            display: flex;
+            padding: 66px 0 65px 0;
+            gap: 38px;
+
+            &::after {
+                content: '';
+                position: absolute;
+                z-index: -1;
+                background-image: url('./../images/icons/jet-info-item-bg-1.svg');
+                background-repeat: no-repeat;
+                top: 0;
+                left: 0;
+                width: 400px;
+                height: 523px;
+            }
+
+            &:last-child {
+                &::after {
+                    background-image: url('./../images/icons/jet-info-item-bg-2.svg');
+                    left: auto;
+                    right: 0;
+                }
+
+                .jet-info__item-text {
+                    order: -1;
+                    margin-left: auto;
+                    margin-right: 0;
+                }
+
+                img {
+                    margin-left: 0;
+                    margin-right: auto;
+                }
+            }
+
+            img {
+                border-radius: 20px;
+                width: 589px;
+                height: 392px;
+                margin-left: auto;
+            }
+
+            .jet-info__item-text {
+                max-width: 463px;
+                margin-right: auto;
+                align-content: center;
+
+                h3 {
+                    font-weight: 600;
+                    font-size: 24px;
+                    color: #000;
+                }
+
+                p {
+                    margin-top: 14px;
+                    font-size: 16px;
+                    letter-spacing: 0.02em;
+                    text-align: justify;
+                    color: #15151599;
+                }
+            }
+        }
+    }
+}
