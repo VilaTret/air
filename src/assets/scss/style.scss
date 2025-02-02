@@ -180,10 +180,6 @@
                 width: 200px;
             }
 
-            &.menu__list--open {
-                transform: translateY(0%);
-            }
-
             .menu__close {
                 display: none;
                 position: absolute;
@@ -193,6 +189,10 @@
                 @include breakpoint($tablet-bp) {
                     display: list-item;
                 }
+            }
+
+            &.menu__list--open {
+                transform: translateY(0%);
             }
         }
     }
@@ -564,79 +564,145 @@
 .jet-info__inner {
     padding: 67px 0;
 
+    @include breakpoint($small-tablet-bp) {
+        padding: 50px 0;
+    }
+
     h2 {
         font-weight: 700;
         font-size: 36px;
         text-transform: capitalize;
         text-align: center;
         color: #000;
+
+        @include breakpoint($small-tablet-bp) {
+            font-size: 28px;
+        }
+
+        @include breakpoint($mobile-bp) {
+            font-size: 24px;
+        }
     }
 
     ul {
         margin-top: 65px;
 
+        @include breakpoint($small-tablet-bp) {
+            margin-top: 40px;
+        }
+
         li {
             position: relative;
-            margin-top: 50px;
-            display: flex;
+            height: 523px;
             padding: 66px 0 65px 0;
-            gap: 38px;
+
+            @include breakpoint($tablet-bp) {
+                height: 450px;
+            }
+
+            @include breakpoint(836px) {
+                height: 607px;
+                padding: 40px 0 40px 0;
+            }
+
+            .jet-info__item-wrapper {
+                max-width: 1130px;
+                margin: 0 auto;
+                padding: 0 20px;
+                display: flex;
+                gap: 38px;
+
+                img {
+                    width: 589px;
+                    height: 392px;
+                    border-radius: 20px;
+
+                    @include breakpoint($tablet-bp) {
+                        width: 500px;
+                        height: 319px;
+                    }
+
+                    @include breakpoint($small-tablet-bp) {
+                        width: auto;
+                        height: auto;
+                    }
+                }
+
+                .jet-info__item-text {
+                    align-content: center;
+
+                    h3 {
+                        font-weight: 600;
+                        font-size: 24px;
+                        color: #000;
+
+                        @include breakpoint($mobile-bp) {
+                            font-size: 18px;
+                        }
+                    }
+
+                    p {
+                        margin-top: 14px;
+                        font-size: 16px;
+                        letter-spacing: 0.02em;
+                        text-align: justify;
+                        color: #15151599;
+
+                        @include breakpoint($mobile-bp) {
+                            font-size: 14px;
+                        }
+                    }
+
+                    @include breakpoint($tablet-bp) {
+                        min-width: 279px;
+                    }
+
+                    @include breakpoint(836px) {
+                        width: 700px;
+                    }
+                }
+
+                @include breakpoint(836px) {
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+            }
 
             &::after {
                 content: '';
                 position: absolute;
                 z-index: -1;
-                background-image: url('./../images/icons/jet-info-item-bg-1.svg');
-                background-repeat: no-repeat;
                 top: 0;
                 left: 0;
                 width: 400px;
-                height: 523px;
+                height: 100%;
+                background-color: #e5f4f6;
+                border-radius: 0 50px 50px 0;
+
+                @include breakpoint($tablet-bp) {
+                    width: 330px;
+                }
             }
 
             &:last-child {
-                &::after {
-                    background-image: url('./../images/icons/jet-info-item-bg-2.svg');
-                    left: auto;
-                    right: 0;
+                margin-top: 51px;
+
+                @include breakpoint($small-tablet-bp) {
+                    margin-top: 31px;
                 }
 
                 .jet-info__item-text {
                     order: -1;
-                    margin-left: auto;
-                    margin-right: 0;
+
+                    @include breakpoint(836px) {
+                        order: 1;
+                    }
                 }
 
-                img {
-                    margin-left: 0;
-                    margin-right: auto;
-                }
-            }
-
-            img {
-                border-radius: 20px;
-                width: 589px;
-                height: 392px;
-                margin-left: auto;
-            }
-
-            .jet-info__item-text {
-                max-width: 463px;
-                margin-right: auto;
-                align-content: center;
-
-                h3 {
-                    font-weight: 600;
-                    font-size: 24px;
-                    color: #000;
-                }
-
-                p {
-                    margin-top: 14px;
-                    font-size: 16px;
-                    letter-spacing: 0.02em;
-                    text-align: justify;
-                    color: #15151599;
+                &::after {
+                    left: auto;
+                    right: 0;
+                    border-radius: 50px 0 0 50px;
                 }
             }
         }
