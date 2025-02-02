@@ -562,7 +562,7 @@
 }
 
 .jet-info__inner {
-    padding: 67px 0;
+    margin-top: 67px;
 
     @include breakpoint($small-tablet-bp) {
         padding: 50px 0;
@@ -704,6 +704,71 @@
                     right: 0;
                     border-radius: 50px 0 0 50px;
                 }
+            }
+        }
+    }
+}
+
+.jet-characteristics__inner {
+    margin-top: 83px;
+    margin-bottom: 66px;
+
+    h2 {
+        font-weight: 700;
+        font-size: 36px;
+        text-transform: capitalize;
+        text-align: center;
+        color: #000;
+    }
+
+    .jet-characteristics__lists-wrapper {
+        margin-top: 68px;
+        display: flex;
+        background-image: url('./../images/pictures/jet-characteristics-bg.png');
+        background-repeat: no-repeat;
+        background-position: center center;
+
+        ul {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            li {
+                min-width: 370px;
+                min-height: 268px;
+                border-radius: 12px;
+                padding: 40px 52px;
+                box-shadow: 0 1px 3px 0 rgba(19, 10, 46, 0.13),
+                    0 3px 14px 0 rgba(19, 10, 46, 0.03),
+                    0 8px 32px 0 rgba(19, 10, 46, 0.07),
+                    0 30px 84px 0 rgba(19, 10, 46, 0.08);
+                background: #fff;
+                text-align: center;
+
+                h3 {
+                    margin-top: 13px;
+                    font-weight: 500;
+                    font-size: 18px;
+                    text-align: center;
+                    text-transform: capitalize;
+                }
+
+                p {
+                    margin-top: 11px;
+                    width: 266px;
+                    font-size: 16px;
+                    letter-spacing: 0.02em;
+                    text-align: center;
+                    color: #15151599;
+                }
+            }
+        }
+
+        .jet-characteristics__list-specifications {
+            margin-left: auto;
+
+            h3 {
+                text-transform: uppercase;
             }
         }
     }
