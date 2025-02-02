@@ -565,23 +565,7 @@
     margin-top: 67px;
 
     @include breakpoint($small-tablet-bp) {
-        padding: 50px 0;
-    }
-
-    h2 {
-        font-weight: 700;
-        font-size: 36px;
-        text-transform: capitalize;
-        text-align: center;
-        color: #000;
-
-        @include breakpoint($small-tablet-bp) {
-            font-size: 28px;
-        }
-
-        @include breakpoint($mobile-bp) {
-            font-size: 24px;
-        }
+        margin-top: 50px;
     }
 
     ul {
@@ -711,14 +695,9 @@
 
 .jet-characteristics__inner {
     margin-top: 83px;
-    margin-bottom: 66px;
 
-    h2 {
-        font-weight: 700;
-        font-size: 36px;
-        text-transform: capitalize;
-        text-align: center;
-        color: #000;
+    @include breakpoint($mobile-bp) {
+        margin-top: 60px;
     }
 
     .jet-characteristics__lists-wrapper {
@@ -728,13 +707,23 @@
         background-repeat: no-repeat;
         background-position: center center;
 
+        @include breakpoint($small-tablet-bp) {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        @include breakpoint($mobile-bp) {
+            margin-top: 40px;
+        }
+
         ul {
             display: flex;
             flex-direction: column;
+            align-items: center;
             gap: 30px;
 
             li {
-                min-width: 370px;
                 min-height: 268px;
                 border-radius: 12px;
                 padding: 40px 52px;
@@ -745,12 +734,31 @@
                 background: #fff;
                 text-align: center;
 
+                @include breakpoint(814px) {
+                    min-height: 245px;
+                    padding: 30px 40px;
+                }
+
+                @include breakpoint($small-tablet-bp) {
+                    min-height: 268px;
+                    padding: 40px 52px;
+                }
+
+                @include breakpoint($mobile-bp) {
+                    min-height: 233px;
+                    padding: 30px 20px;
+                }
+
                 h3 {
                     margin-top: 13px;
                     font-weight: 500;
                     font-size: 18px;
                     text-align: center;
-                    text-transform: capitalize;
+                    text-transform: uppercase;
+
+                    @include breakpoint($mobile-bp) {
+                        font-size: 16px;
+                    }
                 }
 
                 p {
@@ -760,6 +768,10 @@
                     letter-spacing: 0.02em;
                     text-align: center;
                     color: #15151599;
+
+                    @include breakpoint($mobile-bp) {
+                        font-size: 14px;
+                    }
                 }
             }
         }
@@ -767,8 +779,8 @@
         .jet-characteristics__list-specifications {
             margin-left: auto;
 
-            h3 {
-                text-transform: uppercase;
+            @include breakpoint($small-tablet-bp) {
+                margin-left: 0;
             }
         }
     }

@@ -25,6 +25,22 @@ body {
         line-height: 1.5;
         color: #151515;
     }
+
+    h2 {
+        font-weight: 700;
+        font-size: 36px;
+        text-transform: capitalize;
+        text-align: center;
+        color: #000;
+
+        @include breakpoint($small-tablet-bp) {
+            font-size: 28px;
+        }
+
+        @include breakpoint($mobile-bp) {
+            font-size: 24px;
+        }
+    }
 }
 
 .d-f {
