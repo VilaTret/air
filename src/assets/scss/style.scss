@@ -88,7 +88,7 @@
     width: 100%;
     height: 750px;
     z-index: -1;
-    background-image: url('./../images/pictures/intro-bg.jpg');
+    background-image: url('./../images/intro-bg.jpg');
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -275,7 +275,7 @@
 
             &::after {
                 content: '';
-                background-image: url('./../images/icons/intro-link-arrow.svg');
+                background-image: url('./../images/intro-link-arrow.svg');
                 position: absolute;
                 top: 4px;
                 margin-left: 9px;
@@ -440,7 +440,7 @@
 
                             &::after {
                                 content: '';
-                                background-image: url('./../images/icons/calendar.svg');
+                                background-image: url('./../images/calendar.svg');
                                 position: absolute;
                                 top: 6px;
                                 right: 0;
@@ -545,7 +545,7 @@
 
             &::after {
                 content: '';
-                background-image: url('./../images/icons/book-flight-btn-arrow.svg');
+                background-image: url('./../images/book-flight-btn-arrow.svg');
                 position: absolute;
                 top: 32px;
                 margin-left: 49px;
@@ -703,7 +703,7 @@
     .jet-characteristics__lists-wrapper {
         margin-top: 68px;
         display: flex;
-        background-image: url('./../images/pictures/jet-characteristics-bg.png');
+        background-image: url('./../images/jet-characteristics-bg.png');
         background-repeat: no-repeat;
         background-position: center center;
 
