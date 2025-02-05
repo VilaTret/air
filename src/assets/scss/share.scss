@@ -32,6 +32,9 @@ body {
         text-transform: capitalize;
         text-align: center;
         color: #000;
+        background-image: url('./../images/h2-bg.svg');
+        background-repeat: no-repeat;
+        background-position: center center;
 
         @include breakpoint($small-tablet-bp) {
             font-size: 28px;

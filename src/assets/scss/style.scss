@@ -785,3 +785,56 @@
         }
     }
 }
+
+.luxury-charters {
+    background-image: url('./../images/luxury-charters-bg.svg');
+    background-size: 853.96px 339px;
+    background-repeat: no-repeat;
+    background-position: calc(100% + 63.96px) bottom;
+
+    .luxury-charters__inner {
+        margin-top: 66px;
+        padding-bottom: 58px;
+
+        ul {
+            margin-top: 69px;
+            display: flex;
+            gap: 30px;
+
+            @include breakpoint($tablet-bp) {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            @include breakpoint($small-tablet-bp) {
+                margin-top: 40px;
+            }
+
+            li {
+                display: flex;
+                flex-direction: column;
+                border-radius: 12px;
+                padding: 10px 12.4px 14px 12px;
+                background: #fff;
+                box-shadow: 0 1px 3px 0 rgba(19, 10, 46, 0.13),
+                    0 3px 14px 0 rgba(19, 10, 46, 0.03),
+                    0 8px 32px 0 rgba(19, 10, 46, 0.07),
+                    0 30px 84px 0 rgba(19, 10, 46, 0.08);
+
+                img {
+                    border-radius: 12px;
+                    width: 230.6px;
+                    height: 189px;
+                    background: #f3f3f3;
+                }
+
+                a {
+                    display: block;
+                    margin-top: 14px;
+                    font-size: 16px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
