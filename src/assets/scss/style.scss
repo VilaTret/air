@@ -840,21 +840,57 @@
 }
 
 .membership__inner {
-    max-width: 1232px;
+    max-width: 1252px;
     margin: 8px auto 0 auto;
+    padding: 0 10px;
+
+    @include breakpoint($tablet-bp) {
+        max-width: 920px;
+    }
+
+    @include breakpoint($small-tablet-bp) {
+        max-width: 680px;
+    }
+
+    @include breakpoint($mobile-bp) {
+        max-width: none;
+    }
 
     .membership__list {
         margin-top: 65px;
         display: flex;
         gap: 24px;
 
+        @include breakpoint($tablet-bp) {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        @include breakpoint($small-tablet-bp) {
+            margin-top: 40px;
+        }
+
         .membership__item {
             margin-top: 40px;
             min-width: 400px;
-            min-height: 572px;
             background: #f5f5f5;
             border-radius: 20px;
             padding: 24px;
+
+            @include breakpoint(1232px) {
+                width: 100%;
+                min-width: 311px;
+                max-width: 388px;
+            }
+
+            @include breakpoint($tablet-bp) {
+                margin: 0;
+                max-width: 400px;
+            }
+
+            @include breakpoint($mobile-bp) {
+                max-width: 350px;
+            }
 
             &:first-child {
                 border-radius: 20px 0 0 20px;
@@ -864,10 +900,25 @@
                 border-radius: 0 20px 20px 0;
             }
 
+            &:last-child,
+            &:first-child {
+                @include breakpoint($tablet-bp) {
+                    border-radius: 20px;
+                }
+            }
+
             h3 {
                 font-weight: 700;
                 font-size: 32px;
                 line-height: 1.25;
+
+                @include breakpoint($small-tablet-bp) {
+                    font-size: 24px;
+                }
+
+                @include breakpoint($mobile-bp) {
+                    font-size: 18px;
+                }
             }
 
             button {
@@ -882,12 +933,25 @@
                 line-height: 1.81818;
                 text-align: center;
                 color: #fff;
+
+                @include breakpoint($mobile-bp) {
+                    font-size: 18px;
+                }
             }
 
             .membership__what-get {
                 margin-top: 32px;
                 font-size: 22px;
                 color: #a9a9aa;
+
+                @include breakpoint($small-tablet-bp) {
+                    margin-top: 24px;
+                    font-size: 24px;
+                }
+
+                @include breakpoint($mobile-bp) {
+                    font-size: 18px;
+                }
             }
 
             .membership__services {
@@ -896,11 +960,19 @@
                 flex-direction: column;
                 gap: 16px;
 
+                @include breakpoint($small-tablet-bp) {
+                    margin-top: 14px;
+                }
+
                 .membership__services-item {
                     position: relative;
                     font-weight: 500;
                     font-size: 16px;
                     padding-left: 32px;
+
+                    @include breakpoint($mobile-bp) {
+                        font-size: 14px;
+                    }
 
                     &::after {
                         content: '';
@@ -923,13 +995,42 @@
                 font-size: 18px;
                 line-height: 1.25;
                 color: #161616;
+
+                @include breakpoint($small-tablet-bp) {
+                    margin-top: 45px;
+                }
+
+                @include breakpoint($mobile-bp) {
+                    font-size: 16px;
+                }
+
+                b {
+                    font-size: 32px;
+
+                    @include breakpoint($small-tablet-bp) {
+                        font-size: 24px;
+                    }
+
+                    @include breakpoint($mobile-bp) {
+                        font-size: 18px;
+                    }
+                }
             }
 
             &.membership__item-highlight {
                 margin-top: 0;
+                margin-bottom: 40px;
                 min-width: 384px;
                 background: #656293;
                 color: #fff;
+
+                @include breakpoint(1232px) {
+                    min-width: 311px;
+                }
+
+                @include breakpoint($tablet-bp) {
+                    margin: 0;
+                }
 
                 button {
                     box-shadow: 0 12px 32px 0 rgba(255, 255, 255, 0.2);
