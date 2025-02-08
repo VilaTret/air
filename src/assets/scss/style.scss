@@ -936,6 +936,7 @@
                 line-height: 1.81818;
                 text-align: center;
                 color: #fff;
+                cursor: pointer;
 
                 @include breakpoint($mobile-bp) {
                     font-size: 18px;
