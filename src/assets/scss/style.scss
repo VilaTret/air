@@ -725,6 +725,9 @@
             gap: 30px;
 
             li {
+                display: flex;
+                flex-direction: column;
+                min-width: 394px;
                 min-height: 268px;
                 border-radius: 12px;
                 padding: 40px 52px;
@@ -733,19 +736,22 @@
                     0 8px 32px 0 rgba(19, 10, 46, 0.07),
                     0 30px 84px 0 rgba(19, 10, 46, 0.08);
                 background: #fff;
-                text-align: center;
+                align-items: center;
 
-                @include breakpoint(814px) {
+                @include breakpoint(838px) {
+                    min-width: 370px;
                     min-height: 245px;
                     padding: 30px 40px;
                 }
 
                 @include breakpoint($small-tablet-bp) {
+                    min-width: 394px;
                     min-height: 268px;
                     padding: 40px 52px;
                 }
 
                 @include breakpoint($mobile-bp) {
+                    min-width: 306px;
                     min-height: 233px;
                     padding: 30px 20px;
                 }
