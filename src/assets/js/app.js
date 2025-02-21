@@ -1,9 +1,24 @@
 import flatpickr from 'flatpickr';
 import Choices from 'choices.js';
+import Awesomplete from 'awesomplete';
+
+const usernameGeoNamesApi = 'vilatret';
+const countryGeoNamesApi = 'US';
+const languageGeoNamesApi = 'en';
+let listAirports = [];
+const today = new Date();
 
 const menuBtn = document.querySelector('.menu__btn');
 const menuCloseBtn = document.querySelector('.menu__close-btn');
 const menuList = document.querySelector('.menu__list');
+const routeSelectionInputFrom = document.getElementById(
+    'route-selection__input-from',
+);
+const routeSelectionFrom = document.getElementById('route-selection__from');
+const routeSelectionInputTo = document.getElementById(
+    'route-selection__input-to',
+);
+const routeSelectionTo = document.getElementById('route-selection__to');
 const departureFpWrapper = document.getElementById(
     'flatpickr__input-departure-wrapper',
 );
@@ -25,25 +40,20 @@ const addRequirementsTextarea = document.getElementById(
     'book-flights__add-requirements-textarea',
 );
 
-const today = new Date();
+await fetch(
+    `http://api.geonames.org/searchJSON?formatted=true&lang=${languageGeoNamesApi}&featureClass=S&featureCode=AIRP&country=${countryGeoNamesApi}&username=${usernameGeoNamesApi}`,
+)
+    .then(response => response.json())
+    .then(data => {
+        listAirports = data.geonames;
+    })
+    .catch(error => console.error('Error fetching airports:', error));
 
-menuBtn.addEventListener('click', () => {
-    menuList.classList.toggle('menu__list--open');
-});
-
-menuCloseBtn.addEventListener('click', () => {
-    menuList.classList.remove('menu__list--open');
-});
-
-document.addEventListener('click', event => {
-    if (
-        !menuList.contains(event.target) &&
-        !menuBtn.contains(event.target) &&
-        !menuCloseBtn.contains(event.target)
-    ) {
-        menuList.classList.remove('menu__list--open');
-    }
-});
+function shortenAirportName(name) {
+    return name
+        .replace(/\bInternational\b/gi, 'Intl')
+        .replace(/\bAirport\b/gi, 'Arpt');
+}
 
 new Choices('#travel-options-select-wrapper', {
     searchEnabled: false,
@@ -63,6 +73,20 @@ new Choices('#person-select-wrapper', {
     placeholderValue: 'Person',
 });
 
+new Awesomplete(routeSelectionInputFrom, {
+    list: listAirports.map(airport => ({
+        label: `${shortenAirportName(airport.name)}, ${airport.adminCode1}`,
+        value: shortenAirportName(airport.name),
+    })),
+});
+
+new Awesomplete(routeSelectionInputTo, {
+    list: listAirports.map(airport => ({
+        label: `${shortenAirportName(airport.name)}, ${airport.adminCode1}`,
+        value: shortenAirportName(airport.name),
+    })),
+});
+
 const departureFp = flatpickr('#date-selection__input-departure', {
     dateFormat: 'D d M',
     defaultDate: today,
@@ -71,6 +95,54 @@ const departureFp = flatpickr('#date-selection__input-departure', {
 const returnFp = flatpickr('#date-selection__input-return', {
     dateFormat: 'D d M',
     defaultDate: new Date().setDate(today.getDate() + 4),
+});
+
+menuBtn.addEventListener('click', () => {
+    menuList.classList.toggle('menu__list--open');
+});
+
+menuCloseBtn.addEventListener('click', () => {
+    menuList.classList.remove('menu__list--open');
+});
+
+document.addEventListener('click', event => {
+    if (
+        !menuList.contains(event.target) &&
+        !menuBtn.contains(event.target) &&
+        !menuCloseBtn.contains(event.target)
+    ) {
+        menuList.classList.remove('menu__list--open');
+    }
+});
+
+routeSelectionInputFrom.addEventListener('input', () => {
+    listAirports.some(airport => {
+        routeSelectionFrom.textContent = '';
+        const shortenName = shortenAirportName(airport.name);
+        if (routeSelectionInputFrom.value === shortenName) {
+            routeSelectionFrom.textContent = `${shortenName}, ${airport.adminCode1}`;
+            return true;
+        }
+    });
+});
+
+routeSelectionInputFrom.addEventListener('awesomplete-select', event => {
+    routeSelectionFrom.textContent = event.text.label;
+});
+
+routeSelectionInputTo.addEventListener('input', () => {
+    listAirports.some(airport => {
+        routeSelectionTo.textContent = '';
+        const shortenName = shortenAirportName(airport.name);
+        if (routeSelectionInputTo.value === shortenName) {
+            routeSelectionTo.textContent = `${shortenName}, ${airport.adminCode1}`;
+            return true;
+        }
+    });
+});
+
+routeSelectionInputTo.addEventListener('awesomplete-select', event => {
+    routeSelectionTo.textContent = event.text.label;
 });
 
 departureFpWrapper.addEventListener('click', () => {

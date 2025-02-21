@@ -15,15 +15,17 @@
 // контент
 @import './content.scss';
 
+@import './node_modules/flatpickr/dist/flatpickr';
+
+@import './node_modules/choices.js/public/assets/styles/choices';
+
+@import './node_modules/awesomplete/awesomplete';
+
 // шрифты
 // @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 // глобальные стили
 @import './share.scss';
-
-@import './node_modules/flatpickr/dist/flatpickr';
-
-@import './node_modules/choices.js/public/assets/styles/choices';
 
 @font-face {
     font-family: 'Poppins';
@@ -345,6 +347,7 @@
             }
 
             .book-flights__item {
+                min-height: 118.6px;
                 border: 1px solid #aaa;
                 border-radius: 10px;
                 padding: 16px 20px 15px 20px;
@@ -985,7 +988,7 @@
                         font-size: 14px;
                     }
 
-                    &::after {
+                    &::before {
                         content: '';
                         background-image: url('./../images/membership-check-mark-black.svg');
                         position: absolute;
