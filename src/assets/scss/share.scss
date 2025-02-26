@@ -27,14 +27,12 @@ body {
     }
 
     h2 {
+        position: relative;
         font-weight: 700;
         font-size: 36px;
         text-transform: capitalize;
         text-align: center;
         color: #000;
-        background-image: url('./../images/h2-bg.svg');
-        background-repeat: no-repeat;
-        background-position: center center;
 
         @include breakpoint($small-tablet-bp) {
             font-size: 28px;
@@ -42,6 +40,19 @@ body {
 
         @include breakpoint($mobile-bp) {
             font-size: 24px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            z-index: -1;
+            top: 7px;
+            left: 50%;
+            width: 40px;
+            height: 40px;
+            transform: translateX(-50%);
+            border-radius: 100%;
+            background-color: #1515151a;
         }
     }
 }

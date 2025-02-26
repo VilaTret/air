@@ -8,6 +8,8 @@ const languageGeoNamesApi = 'en';
 let listAirports = [];
 const today = new Date();
 
+const introBg = document.querySelector('.intro-bg .intro-bg__image img');
+const introContainer = document.querySelector('.intro-bg');
 const menuBtn = document.querySelector('.menu__btn');
 const menuCloseBtn = document.querySelector('.menu__close-btn');
 const menuList = document.querySelector('.menu__list');
@@ -112,6 +114,18 @@ document.addEventListener('click', event => {
         !menuCloseBtn.contains(event.target)
     ) {
         menuList.classList.remove('menu__list--open');
+    }
+});
+
+window.addEventListener('scroll', function () {
+    let scrollTop = window.scrollY;
+    let imgHeight = introBg.offsetHeight;
+    let containerHeight = introContainer.offsetHeight;
+    let maxScroll = containerHeight - imgHeight;
+    if (scrollTop <= maxScroll) {
+        introBg.style.transform = `translateY(${scrollTop}px)`;
+    } else {
+        introBg.style.transform = `translateY(${maxScroll}px)`;
     }
 });
 
