@@ -21,6 +21,9 @@ const routeSelectionInputTo = document.getElementById(
     'route-selection__input-to',
 );
 const routeSelectionTo = document.getElementById('route-selection__to');
+const routeSelectionInvertBtn = document.getElementById(
+    'route-selection__invert-btn',
+);
 const departureFpWrapper = document.getElementById(
     'flatpickr__input-departure-wrapper',
 );
@@ -157,6 +160,17 @@ routeSelectionInputTo.addEventListener('input', () => {
 
 routeSelectionInputTo.addEventListener('awesomplete-select', event => {
     routeSelectionTo.textContent = event.text.label;
+});
+
+routeSelectionInvertBtn.addEventListener('click', () => {
+    const inputFromValue = routeSelectionInputFrom.value;
+    const from = routeSelectionFrom.textContent;
+    const inputToValue = routeSelectionInputTo.value;
+    const to = routeSelectionTo.textContent;
+    routeSelectionInputFrom.value = inputToValue;
+    routeSelectionFrom.textContent = to;
+    routeSelectionInputTo.value = inputFromValue;
+    routeSelectionTo.textContent = from;
 });
 
 departureFpWrapper.addEventListener('click', () => {
