@@ -8,10 +8,10 @@ const languageGeoNamesApi = 'en';
 let listAirports = [];
 const today = new Date();
 
-const introBg = document.querySelector('.intro-bg .intro-bg__image img');
+const introBg = document.getElementById('intro-bg-image');
 const introContainer = document.querySelector('.intro-bg');
-const menuBtn = document.querySelector('.menu__btn');
-const menuCloseBtn = document.querySelector('.menu__close-btn');
+const menuBtn = document.getElementById('menu__btn');
+const menuCloseBtn = document.getElementById('menu__close-btn');
 const menuList = document.querySelector('.menu__list');
 const routeSelectionInputFrom = document.getElementById(
     'route-selection__input-from',

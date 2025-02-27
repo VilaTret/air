@@ -192,9 +192,13 @@
 
         a {
             color: #181818;
+
+            &:hover {
+                color: #656293;
+            }
         }
 
-        .menu__btn {
+        #menu__btn {
             display: none;
 
             @include breakpoint($tablet-bp) {
@@ -282,6 +286,10 @@
             border-radius: 5px;
             background: #656293;
             color: #fff;
+
+            &:hover {
+                background-color: #8d89cc;
+            }
         }
     }
 }
@@ -333,7 +341,9 @@
 
         a {
             position: relative;
-            display: block;
+            display: flex;
+            align-items: center;
+            width: 126px;
             margin-top: 48px;
             font-size: 16px;
 
@@ -342,14 +352,18 @@
                 text-align: center;
             }
 
-            &::after {
-                content: '';
-                background-image: url('./../images/intro-link-arrow.svg');
-                position: absolute;
-                top: 4px;
+            &:hover {
+                .intro__link-arrow {
+                    stroke: #656293;
+                }
+            }
+
+            .intro__link-arrow {
                 margin-left: 9px;
                 width: 16px;
                 height: 16px;
+                fill: none;
+                stroke: #151515;
             }
         }
     }
@@ -450,6 +464,10 @@
                 @include breakpoint($small-tablet-bp) {
                     margin: 6px 0;
                     transform: rotate(90deg);
+                }
+
+                &:hover {
+                    background-color: #e1e1e1;
                 }
 
                 img {
@@ -626,6 +644,10 @@
                     top: 18.5px;
                     margin-left: 27px;
                 }
+            }
+
+            &:hover {
+                background-color: #8d89cc;
             }
         }
     }
@@ -1016,6 +1038,10 @@
                 @include breakpoint($mobile-bp) {
                     font-size: 18px;
                 }
+
+                &:hover {
+                    background-color: #8d89cc;
+                }
             }
 
             .membership__what-get {
@@ -1116,6 +1142,10 @@
                     box-shadow: 0 12px 32px 0 rgba(255, 255, 255, 0.2);
                     background: #fff;
                     color: #151515;
+
+                    &:hover {
+                        background-color: #e1e1e1;
+                    }
                 }
 
                 .membership__services-item {
@@ -1139,6 +1169,10 @@ footer {
             color: #ffffffb3;
             text-transform: uppercase;
             font-weight: 400;
+
+            &:hover {
+                color: #fff;
+            }
         }
 
         .footer__logo {
