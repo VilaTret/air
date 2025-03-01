@@ -8,41 +8,45 @@ const languageGeoNamesApi = 'en';
 let listAirports = [];
 const today = new Date();
 
-const introBg = document.getElementById('intro-bg-image');
+const introBg = document.querySelector('.intro-bg__image');
 const introContainer = document.querySelector('.intro-bg');
-const menuBtn = document.getElementById('menu__btn');
-const menuCloseBtn = document.getElementById('menu__close-btn');
+const menuBtn = document.querySelector('.menu__btn');
+const menuCloseBtn = document.querySelector('.menu__close-btn');
 const menuList = document.querySelector('.menu__list');
-const routeSelectionInputFrom = document.getElementById(
-    'route-selection__input-from',
+const routeSelectionFromInput = document.querySelector(
+    '.route-selection__from-input',
 );
-const routeSelectionFrom = document.getElementById('route-selection__from');
-const routeSelectionInputTo = document.getElementById(
-    'route-selection__input-to',
+const routeSelectionFromLocation = document.querySelector(
+    '.route-selection__from-location',
 );
-const routeSelectionTo = document.getElementById('route-selection__to');
-const routeSelectionInvertBtn = document.getElementById(
-    'route-selection__invert-btn',
+const routeSelectionToInput = document.querySelector(
+    '.route-selection__to-input',
 );
-const departureFpWrapper = document.getElementById(
-    'flatpickr__input-departure-wrapper',
+const routeSelectionToLocation = document.querySelector(
+    '.route-selection__to-location',
 );
-const returnFpWrapper = document.getElementById(
-    'flatpickr__input-return-wrapper',
+const routeSelectionInvertBtn = document.querySelector(
+    '.route-selection__invert-btn',
 );
-const departurePrevBtn = document.getElementById(
-    'flatpickr-departure__prev-btn',
+const departureFpWrapper = document.querySelector(
+    '.flatpickr__departure-input-wrapper',
 );
-const departureNextBtn = document.getElementById(
-    'flatpickr-departure__next-btn',
+const returnFpWrapper = document.querySelector(
+    '.flatpickr__return-input-wrapper',
 );
-const returnPrevBtn = document.getElementById('flatpickr-return__prev-btn');
-const returnNextBtn = document.getElementById('flatpickr-return__next-btn');
-const addRequirementsBtn = document.getElementById(
-    'book-flights__add-requirements-btn',
+const departurePrevBtn = document.querySelector(
+    '.flatpickr-departure__prev-btn',
 );
-const addRequirementsTextarea = document.getElementById(
-    'book-flights__add-requirements-textarea',
+const departureNextBtn = document.querySelector(
+    '.flatpickr-departure__next-btn',
+);
+const returnPrevBtn = document.querySelector('.flatpickr-return__prev-btn');
+const returnNextBtn = document.querySelector('.flatpickr-return__next-btn');
+const addRequirementsBtn = document.querySelector(
+    '.book-flights__add-requirements-btn',
+);
+const addRequirementsTextarea = document.querySelector(
+    '.book-flights__add-requirements-textarea',
 );
 
 await fetch(
@@ -60,44 +64,44 @@ function shortenAirportName(name) {
         .replace(/\bAirport\b/gi, 'Arpt');
 }
 
-new Choices('#travel-options-select-wrapper', {
+new Choices('.travel-options-select-wrapper', {
     searchEnabled: false,
     itemSelectText: '',
     placeholder: false,
 });
 
-new Choices('#flight-type-select-wrapper', {
+new Choices('.flight-type-select-wrapper', {
     searchEnabled: false,
     itemSelectText: '',
     placeholderValue: 'Flight Type',
 });
 
-new Choices('#person-select-wrapper', {
+new Choices('.person-select-wrapper', {
     searchEnabled: false,
     itemSelectText: '',
     placeholderValue: 'Person',
 });
 
-new Awesomplete(routeSelectionInputFrom, {
+new Awesomplete(routeSelectionFromInput, {
     list: listAirports.map(airport => ({
         label: `${shortenAirportName(airport.name)}, ${airport.adminCode1}`,
         value: shortenAirportName(airport.name),
     })),
 });
 
-new Awesomplete(routeSelectionInputTo, {
+new Awesomplete(routeSelectionToInput, {
     list: listAirports.map(airport => ({
         label: `${shortenAirportName(airport.name)}, ${airport.adminCode1}`,
         value: shortenAirportName(airport.name),
     })),
 });
 
-const departureFp = flatpickr('#date-selection__input-departure', {
+const departureFp = flatpickr('.date-selection__input-departure', {
     dateFormat: 'D d M',
     defaultDate: today,
 });
 
-const returnFp = flatpickr('#date-selection__input-return', {
+const returnFp = flatpickr('.date-selection__input-return', {
     dateFormat: 'D d M',
     defaultDate: new Date().setDate(today.getDate() + 4),
 });
@@ -132,45 +136,45 @@ window.addEventListener('scroll', function () {
     }
 });
 
-routeSelectionInputFrom.addEventListener('input', () => {
+routeSelectionFromInput.addEventListener('input', () => {
     listAirports.some(airport => {
-        routeSelectionFrom.textContent = '';
+        routeSelectionFromLocation.textContent = '';
         const shortenName = shortenAirportName(airport.name);
-        if (routeSelectionInputFrom.value === shortenName) {
-            routeSelectionFrom.textContent = `${shortenName}, ${airport.adminCode1}`;
+        if (routeSelectionFromInput.value === shortenName) {
+            routeSelectionFromLocation.textContent = `${shortenName}, ${airport.adminCode1}`;
             return true;
         }
     });
 });
 
-routeSelectionInputFrom.addEventListener('awesomplete-select', event => {
-    routeSelectionFrom.textContent = event.text.label;
+routeSelectionFromInput.addEventListener('awesomplete-select', event => {
+    routeSelectionFromLocation.textContent = event.text.label;
 });
 
-routeSelectionInputTo.addEventListener('input', () => {
+routeSelectionToInput.addEventListener('input', () => {
     listAirports.some(airport => {
-        routeSelectionTo.textContent = '';
+        routeSelectionToLocation.textContent = '';
         const shortenName = shortenAirportName(airport.name);
-        if (routeSelectionInputTo.value === shortenName) {
-            routeSelectionTo.textContent = `${shortenName}, ${airport.adminCode1}`;
+        if (routeSelectionToInput.value === shortenName) {
+            routeSelectionToLocation.textContent = `${shortenName}, ${airport.adminCode1}`;
             return true;
         }
     });
 });
 
-routeSelectionInputTo.addEventListener('awesomplete-select', event => {
-    routeSelectionTo.textContent = event.text.label;
+routeSelectionToInput.addEventListener('awesomplete-select', event => {
+    routeSelectionToLocation.textContent = event.text.label;
 });
 
 routeSelectionInvertBtn.addEventListener('click', () => {
-    const inputFromValue = routeSelectionInputFrom.value;
-    const from = routeSelectionFrom.textContent;
-    const inputToValue = routeSelectionInputTo.value;
-    const to = routeSelectionTo.textContent;
-    routeSelectionInputFrom.value = inputToValue;
-    routeSelectionFrom.textContent = to;
-    routeSelectionInputTo.value = inputFromValue;
-    routeSelectionTo.textContent = from;
+    const inputFromValue = routeSelectionFromInput.value;
+    const from = routeSelectionFromLocation.textContent;
+    const inputToValue = routeSelectionToInput.value;
+    const to = routeSelectionToLocation.textContent;
+    routeSelectionFromInput.value = inputToValue;
+    routeSelectionFromLocation.textContent = to;
+    routeSelectionToInput.value = inputFromValue;
+    routeSelectionToLocation.textContent = from;
 });
 
 departureFpWrapper.addEventListener('click', () => {
@@ -198,7 +202,7 @@ departureNextBtn.addEventListener('click', () => {
 });
 
 returnPrevBtn.addEventListener('click', () => {
-    const currentDate = departureFp.selectedDates[0] || new Date();
+    const currentDate = returnFp.selectedDates[0] || new Date();
     const prevMonthDate = new Date(
         currentDate.setMonth(currentDate.getMonth() - 1),
     );
@@ -206,7 +210,7 @@ returnPrevBtn.addEventListener('click', () => {
 });
 
 returnNextBtn.addEventListener('click', () => {
-    const currentDate = departureFp.selectedDates[0] || new Date();
+    const currentDate = returnFp.selectedDates[0] || new Date();
     const nextMonthDate = new Date(
         currentDate.setMonth(currentDate.getMonth() + 1),
     );
