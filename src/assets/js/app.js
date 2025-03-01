@@ -46,7 +46,7 @@ const addRequirementsTextarea = document.getElementById(
 );
 
 await fetch(
-    `http://api.geonames.org/searchJSON?formatted=true&lang=${languageGeoNamesApi}&featureClass=S&featureCode=AIRP&country=${countryGeoNamesApi}&username=${usernameGeoNamesApi}`,
+    `https://secure.geonames.org/searchJSON?formatted=true&lang=${languageGeoNamesApi}&featureClass=S&featureCode=AIRP&country=${countryGeoNamesApi}&username=${usernameGeoNamesApi}`,
 )
     .then(response => response.json())
     .then(data => {
