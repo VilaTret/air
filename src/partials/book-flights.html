@@ -3,19 +3,19 @@
         <div class="book-flights__inner">
             <div class="book-flights__content">
                 <div class="book-flights__options">
-                    <div id="travel-options-select">
+                    <div>
                         <select
                             name="travel-options"
-                            id="travel-options-select-wrapper"
+                            class="travel-options-select-wrapper"
                         >
                             <option value="round-trip">Round Trip</option>
                             <option value="one-way">One Way</option>
                         </select>
                     </div>
-                    <div id="flight-type-select">
+                    <div>
                         <select
                             name="flight-type"
-                            id="flight-type-select-wrapper"
+                            class="flight-type-select-wrapper"
                             required
                         >
                             <option value="private-jet">Private Jet</option>
@@ -24,10 +24,10 @@
                             </option>
                         </select>
                     </div>
-                    <div id="person-select">
+                    <div>
                         <select
                             name="count-person"
-                            id="person-select-wrapper"
+                            class="person-select-wrapper"
                             required
                         >
                             <option value="1">1</option>
@@ -41,52 +41,55 @@
                     </div>
                 </div>
                 <div class="book-flights__details">
-                    <div class="book-flights__item route-selection__froom">
+                    <div
+                        class="book-flights__item route-selection__from-wrapper"
+                    >
                         <p>From</p>
                         <input
                             type="text"
-                            id="route-selection__input-from"
-                            class="awesomplete"
+                            class="route-selection__from-input awesomplete"
                             placeholder="Enter..."
                         />
-                        <p id="route-selection__from"></p>
+                        <p class="route-selection__from-location"></p>
                     </div>
-                    <button id="route-selection__invert-btn" class="icon-btn">
+                    <button class="route-selection__invert-btn icon-btn">
                         <img
                             src="assets/images/invert-btn-arrows.svg"
                             alt="Icon"
                         />
                     </button>
-                    <div class="book-flights__item route-selection__to">
+                    <div class="book-flights__item route-selection__to-wrapper">
                         <p>To</p>
                         <input
                             type="text"
-                            id="route-selection__input-to"
-                            class="awesomplete"
+                            class="route-selection__to-input awesomplete"
                             placeholder="Enter..."
                         />
-                        <p id="route-selection__to"></p>
+                        <p class="route-selection__to-location"></p>
                     </div>
-                    <div class="book-flights__item date-selection">
+                    <div class="book-flights__item date-selection__wrapper">
                         <div class="date-selection__item">
                             <p>Departure</p>
                             <div
                                 class="date-selection__flatpickr date-selection__flatpickr-departure"
                             >
                                 <div
-                                    id="flatpickr__input-departure-wrapper"
-                                    class="flatpickr__input-wrapper"
+                                    class="flatpickr__departure-input-wrapper flatpickr__input-wrapper"
                                 >
                                     <input
                                         type="text"
-                                        id="date-selection__input-departure"
+                                        class="date-selection__input-departure"
                                     />
                                 </div>
                                 <div class="flatpickr__actions">
-                                    <button id="flatpickr-departure__prev-btn">
+                                    <button
+                                        class="flatpickr-departure__prev-btn"
+                                    >
                                         Prev
                                     </button>
-                                    <button id="flatpickr-departure__next-btn">
+                                    <button
+                                        class="flatpickr-departure__next-btn"
+                                    >
                                         Next
                                     </button>
                                 </div>
@@ -98,19 +101,18 @@
                                 class="date-selection__flatpickr date-selection__flatpickr-return"
                             >
                                 <div
-                                    id="flatpickr__input-return-wrapper"
-                                    class="flatpickr__input-wrapper"
+                                    class="flatpickr__return-input-wrapper flatpickr__input-wrapper"
                                 >
                                     <input
                                         type="text"
-                                        id="date-selection__input-return"
+                                        class="date-selection__input-return"
                                     />
                                 </div>
                                 <div class="flatpickr__actions">
-                                    <button id="flatpickr-return__prev-btn">
+                                    <button class="flatpickr-return__prev-btn">
                                         Prev
                                     </button>
-                                    <button id="flatpickr-return__next-btn">
+                                    <button class="flatpickr-return__next-btn">
                                         Next
                                     </button>
                                 </div>
@@ -118,18 +120,34 @@
                         </div>
                     </div>
                 </div>
-                <button id="book-flights__add-requirements-btn">
+                <button class="book-flights__add-requirements-btn">
                     Add Requirements
                 </button>
                 <textarea
-                    id="book-flights__add-requirements-textarea"
+                    class="book-flights__add-requirements-textarea"
                     placeholder="Enter your wishes..."
                     rows="4"
                     resize="false"
                 ></textarea>
             </div>
             <div class="book-flights__book-btn-wrapper">
-                <button id="book-flights__book-btn">Book Flights</button>
+                <button class="book-flights__book-btn">
+                    Book Flights
+                    <svg viewBox="0 0 18 18">
+                        <path
+                            d="M2.8125 9H15.1875"
+                            stroke-width="1.6875"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M10.125 3.9375L15.1875 9L10.125 14.0625"
+                            stroke-width="1.6875"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                </button>
             </div>
         </div>
     </div>

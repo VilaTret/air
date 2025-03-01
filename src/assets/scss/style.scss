@@ -112,7 +112,7 @@
         }
     }
 
-    .intro-bg__image {
+    .intro-bg__wrapper {
         width: 100%;
         height: 100%;
         -webkit-mask: url('./../images/intro-bg-mask.svg') 70% top / cover;
@@ -198,7 +198,7 @@
             }
         }
 
-        #menu__btn {
+        .menu__btn {
             display: none;
 
             @include breakpoint($tablet-bp) {
@@ -308,6 +308,9 @@
     .intro__content {
         max-width: 587px;
         min-height: 226px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
 
         @include breakpoint($small-tablet-bp) {
             max-width: 497px;
@@ -315,6 +318,7 @@
 
         @include breakpoint($mobile-bp) {
             max-width: 430px;
+            align-items: center;
         }
 
         h1 {
@@ -341,27 +345,24 @@
 
         a {
             position: relative;
-            display: flex;
-            align-items: center;
-            width: 126px;
             margin-top: 48px;
             font-size: 16px;
 
             @include breakpoint($mobile-bp) {
-                margin-top: 30px;
                 text-align: center;
             }
 
             &:hover {
-                .intro__link-arrow {
+                svg {
                     stroke: #656293;
                 }
             }
 
-            .intro__link-arrow {
+            svg {
                 margin-left: 9px;
                 width: 16px;
                 height: 16px;
+                vertical-align: middle;
                 fill: none;
                 stroke: #151515;
             }
@@ -439,8 +440,8 @@
                 }
             }
 
-            .route-selection__froom,
-            .route-selection__to {
+            .route-selection__from-wrapper,
+            .route-selection__to-wrapper {
                 width: 300px;
                 display: flex;
                 flex-direction: column;
@@ -455,7 +456,7 @@
                 }
             }
 
-            #route-selection__invert-btn {
+            .route-selection__invert-btn {
                 margin: 0 6px;
                 border: 0.47px solid #aaa;
                 border-radius: 100%;
@@ -476,7 +477,7 @@
                 }
             }
 
-            .date-selection {
+            .date-selection__wrapper {
                 margin-left: 10px;
                 width: 399px;
                 display: flex;
@@ -564,7 +565,7 @@
             }
         }
 
-        #book-flights__add-requirements-btn {
+        .book-flights__add-requirements-btn {
             margin-top: 16px;
             background-color: transparent;
             border: none;
@@ -590,7 +591,7 @@
             }
         }
 
-        #book-flights__add-requirements-textarea {
+        .book-flights__add-requirements-textarea {
             display: none;
             margin: 16px 0;
             width: 100%;
@@ -616,8 +617,8 @@
         width: 100%;
         justify-content: center;
 
-        #book-flights__book-btn {
-            padding: 27px 95px 26px 30px;
+        .book-flights__book-btn {
+            padding: 27px 28px 26px 30px;
             border: none;
             border-radius: 10px;
             background: #656293;
@@ -627,27 +628,25 @@
             cursor: pointer;
 
             @include breakpoint($mobile-bp) {
-                padding: 17px 65px 17px 20px;
+                padding: 17px 20px 17px 20px;
                 font-size: 14px;
-            }
-
-            &::after {
-                content: '';
-                background-image: url('./../images/book-flight-btn-arrow.svg');
-                position: absolute;
-                top: 32px;
-                margin-left: 49px;
-                width: 18px;
-                height: 18px;
-
-                @include breakpoint($mobile-bp) {
-                    top: 18.5px;
-                    margin-left: 27px;
-                }
             }
 
             &:hover {
                 background-color: #8d89cc;
+            }
+
+            svg {
+                width: 18px;
+                height: 18px;
+                margin-left: 50px;
+                vertical-align: middle;
+                fill: none;
+                stroke: #fff;
+
+                @include breakpoint($mobile-bp) {
+                    margin-left: 27px;
+                }
             }
         }
     }
@@ -1149,7 +1148,7 @@
                 }
 
                 .membership__services-item {
-                    &::after {
+                    &::before {
                         background-image: url('./../images/membership-check-mark-white.svg');
                     }
                 }
